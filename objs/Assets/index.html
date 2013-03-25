@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
+    <form>
+      <ul>
+        <li>title:<br />
+          <input id="title" type="text" placeholder="title" /></li>
+        <li>message:<br />
+          <input id="message" type="text" placeholder="message" /></li>
+        <li><input id="submit" type="submit" value="Call Native Alert" /></li>
+        <li><input id="submit2" type="submit" value="Call HTML Alert" /></li>
+      </ul>
+    </from>
+    <script src="jquery.min.js"></script>
+    <script>
+      //window.location = "objs://test?xx=yy"
+      $("#submit2").click(function(){
+        var title = $("#title").val();
+        var message = $("#message").val();
+        alert("title:" + title + '\n' + "message:" + message);
+        return false;
+      });
+      $("#submit").click(function(){
+        var title = $("#title").val();
+        var message = $("#message").val();
+        window.location = "objs://?title=" + title + '&' + "message=" + message;
+        return false;
+      });
+    </script>
+  </body>
+</html>
